@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLF GTI</title>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <h1>GOLF GTI DRIVERS</h1>
     </section>
 
-    <div style="display: flex;">
+    <div id="app" style="display: flex;">
 
         <article style="flex-grow: 2;  ">
             <h2>BIENVENIDO</h2>
@@ -24,34 +25,22 @@
 
         <nav>
             <ul>
-                <li>
-                    <a href="complemento-0.html">VOLKSWAGEN CARIBE (1971-1979)</a>
-                </li>
-                <li>
-                    <a href="complemento-1.html">CRONOLOGIA DE CARIBE NACIONAL</a>
-                </li>
-                <li>
-                    <a href="complemento-2.html">CARIBE GT 84</a>
-                </li>
-                <li>
-                    <a href="complemento-3.html">UN LOBO CON PIEL DE CONEJO</a>
-                </li>
-                <li>
-                    <a href="complemento-4.html">GOLF G60</a>
-                </li>
-                <li>
-                    <a href="complemento-5.html">EL EXTRAÑO CASO DE GOLF EN SUDAFRICA</a>
-                </li>
-                <li>
-                    <a href="complemento-6.html">CARIBE GT 5</a>
-                </li>
-                <li>
-                    <a href="complemento-7.html">GOLF TAS</a>
+                <li v-for="articulo in listaArticulos">
+                    <a v-bind:href="articulo.referencia">
+                        {{ articulo.titulo }}
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
-
 </body>
+
+<!-- Importando Vue -->
+<script src="./main.js"></script>
+
+<!-- Montando Vue -->
+<script>
+    const mountedApp = app.mount('#app');
+</script>
 
 </html>
